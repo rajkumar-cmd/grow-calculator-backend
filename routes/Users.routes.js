@@ -21,7 +21,7 @@ userRouter.post("/register",async(req,res)=>{
                 })
                 await user.save();
                 console.log(user)
-                res.send("Registered")
+                res.send({"Register":user})
             }
         });
     }catch(err){
