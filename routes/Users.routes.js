@@ -39,7 +39,7 @@ userRouter.post("/login",async(req,res)=>{
         console.log(user);
         if(user.length>0){
             const hash=user[0].password;
-            brycpt.compare(password,hash,(err,result)=>{
+            bcrypt.compare(password,hash,(err,result)=>{
                 if(result){
                     const token=jwt.sign({name:user[0].name},"grow")
                     console.log("Login Successfull")
