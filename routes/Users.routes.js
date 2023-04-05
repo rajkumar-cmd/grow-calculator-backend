@@ -9,6 +9,7 @@ const userRouter=express.Router();
 
 userRouter.post("/register",async(req,res)=>{
     const {name,email,password}=req.body;
+    // console.log(name,email,password)
     try{
         bcrypt.hash(password,5,async(err,hash)=>{
             if(err){
@@ -51,7 +52,7 @@ userRouter.post("/login",async(req,res)=>{
             res.send({"msg":"Login Failed"})
         }
     }catch(err){
-        res.send({"msg":"Login Failed","Error":err})
+        res.send({"msg":"Login Failed","email":email,"Error":err})
     }
 })
 
